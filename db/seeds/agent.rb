@@ -162,8 +162,14 @@ agent_attrs = [
 ]
 
 agent_attrs.each do |attr_title|
-    AssociatedAttr.find_or_create_by(attr_title: attr_title) do |attr|
-      # Set other attributes if necessary, for example:
+  associated_attr = AssociatedAttr.find_or_initialize_by(attr_title: attr_title)
+  
+  # Get existing endpoints or initialize an empty array
+  existing_endpoints = associated_attr.associated_endpoints || []
 
-    end
+  # Only append 'ActionLog' if it's not already present
+  unless existing_endpoints.include?("Agent")
+    new_endpoints = existing_endpoints + ["Agent"] # Append only if it doesn't exist
+    associated_attr.update(associated_endpoints: new_endpoints)
   end
+end
