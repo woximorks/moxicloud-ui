@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Associated attrs</h1>
+
+<div id="associated_attrs">
+  <% @associated_attrs.each do |associated_attr| %>
+    <%= render associated_attr %>
+    <p>
+      <%= link_to "Show this associated attr", associated_attr %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New associated attr", new_associated_attr_path %>

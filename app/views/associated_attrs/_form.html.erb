@@ -1,0 +1,32 @@
+<%= form_with(model: associated_attr) do |form| %>
+  <% if associated_attr.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(associated_attr.errors.count, "error") %> prohibited this associated_attr from being saved:</h2>
+
+      <ul>
+        <% associated_attr.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :attr_title, style: "display: block" %>
+    <%= form.text_field :attr_title %>
+  </div>
+
+  <div>
+    <%= form.label :associated_endpoints, style: "display: block" %>
+    <%= form.text_field :associated_endpoints %>
+  </div>
+
+  <div>
+    <%= form.label :general_info, style: "display: block" %>
+    <%= form.text_field :general_info %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+class AssociatedAttr < ApplicationRecord
+end

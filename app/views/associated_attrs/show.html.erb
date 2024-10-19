@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @associated_attr %>
+
+<div>
+  <%= link_to "Back to associated attrs", associated_attrs_path %>
+
+  <%= button_to "Destroy this associated attr", @associated_attr, method: :delete %>
+</div>

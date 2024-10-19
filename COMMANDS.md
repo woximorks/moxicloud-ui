@@ -1,0 +1,1 @@
+rails g scaffold AssociatedAttr attr_title:string associated_endpoints:json general_info:json

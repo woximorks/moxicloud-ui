@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  attr_title: MyString
+  associated_endpoints: 
+  general_info: 
+
+two:
+  attr_title: MyString
+  associated_endpoints: 
+  general_info: 
