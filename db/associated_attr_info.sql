@@ -36,7 +36,7 @@ UPDATE associated_attrs SET general_info = NULL, agent_info = 'This name can be 
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'This is the ID of this agent. This will be an integer.' where attr_title = 'agent_id'; -- agent
 UPDATE associated_attrs SET general_info = 'This will be an RFC 4122 compliant UUID.' where attr_title = 'moxi_works_office_id';
 UPDATE associated_attrs SET general_info = 'This is the MoxiWorks Platform ID of the office for the agent. This will be an RFC 4122 compliant UUID.' where attr_title = 'office_id'; -- agent
-UPDATE associated_attrs SET general_info = NULL, agent_info = 'This is the ID of the office for the agent. This will be an integer.' where attr_title = 'client_office_id'; -- agent
+UPDATE associated_attrs SET general_info = NULL, agent_info = 'This is the ID of the office for the agent. This will be an integer.', office_info = 'This is the ID of the office utilized by the company.' where attr_title = 'client_office_id'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'This is the ID of the company for the agent. This will be an integer.' where attr_title = 'company_id'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'This is the ID of the Company utilized by their brokerage or company.This is a client-specified identifier of the company which this Company object represents, or null if absent.' where attr_title = 'client_company_id'; -- agent
 UPDATE associated_attrs SET general_info = 'This is the main associated physical street address where the office is located. It can be null if there is no data for this attribute.' where attr_title = 'office_address_street'; 
@@ -71,13 +71,13 @@ UPDATE associated_attrs SET general_info = NULL, agent_info = 'Related to the pr
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'The view level of the agent.' where attr_title = 'view_level'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'Related to agent Teams, within My Account section.' where attr_title = 'teams'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'The base url of the agent’s MoxiWorks agent website.' where attr_title = 'website_base_url'; -- agent
-UPDATE associated_attrs SET general_info = NULL, agent_info = 'agent’s Twitter URL. Seen within About Me > Web Info.' where attr_title = 'twitter'; -- agent
-UPDATE associated_attrs SET general_info = NULL, agent_info = 'This will be null. Deprecated field related to a product that no longer exists, offered by Google many moons ago.' where attr_title = 'google_plus'; -- agent
-UPDATE associated_attrs SET general_info = NULL, agent_info = 'agent’s Facebook page url. Seen within About Me > Web Info.' where attr_title = 'facebook'; -- agent
+UPDATE associated_attrs SET general_info = NULL, agent_info = 'agent’s Twitter URL. Seen within About Me > Web Info.', office_info = 'Office’s Twitter account name.' where attr_title = 'twitter'; -- agent
+UPDATE associated_attrs SET general_info = 'This will be null. Deprecated field related to a product that no longer exists, offered by Google many moons ago.' where attr_title = 'google_plus'; -- agent
+UPDATE associated_attrs SET general_info = NULL, agent_info = 'agent’s Facebook page url. Seen within About Me > Web Info.', office_info = 'Office’s Facebook page url.' where attr_title = 'facebook'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'agent’s website domain. This will be returned without the HTTP(S) prefix.' where attr_title = 'home_page'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'agent’s associated profile image within About Me section.' where attr_title = 'profile_image_url'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'agent’s associated profile image within About Me section, thumbnail.' where attr_title = 'profile_thumb_url'; -- agent
-UPDATE associated_attrs SET general_info = NULL, agent_info = 'The region the agent’s office is in.' where attr_title = 'region'; -- agent
+UPDATE associated_attrs SET general_info = 'The region the office is in.' where attr_title = 'region'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'This is the agent’s Gross Commission Income goal, as seen throughout the Engage UI.' where attr_title = 'gci_goal'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'Percentage commission rate for the agent when acting as a buyer’s agent.' where attr_title = 'buyer_commission_rate'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'Percentage commission rate for the agent when acting as a seller’s agent.' where attr_title = 'seller_commission_rate'; -- agent
@@ -86,16 +86,16 @@ UPDATE associated_attrs SET general_info = NULL, agent_info = 'This includes the
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'agent’s alternate offices, as seen within the additional offices page. The alternate_offices array contains Dictionary objects representing AlternateOffice entries. These include [moxi_works_office_id, office_id, office_address_street, office_address_street2, office_address_city, office_address_state, office_address_zip, office_phone_number].' where attr_title = 'alternate_offices'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'The available_mls Array contains Dictionary objects representing MLS entries. These include [name, display_name, mls_abbreviation, agent_id].' where attr_title = 'available_mls'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'Existence of objects in the partners data structure is dependent upon external relationships existing between the agent represented by this agent and the affiliate. Documented entities in the `partners` data structure may or may not be returned based on agent relationship. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned.' where attr_title = 'partners'; -- agent, company
-UPDATE associated_attrs SET general_info = NULL, agent_info = 'A list of the company specific program names in which the agent participates or is a member.' where attr_title = 'company_programs'; -- agent
+UPDATE associated_attrs SET general_info = NULL, agent_info = 'A list of the company specific program names in which the agent participates or is a member.', office_info = 'A list of the company specific program names in which the agent’s office participates or is a member.' where attr_title = 'company_programs'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'A list of the source-specific user identifiers.' where attr_title = 'source_metadata';
-UPDATE associated_attrs SET general_info = NULL, agent_info = 'This is the Unix timestamp representing the date that this agent was created in the MoxiWorks system.' where attr_title = 'created_timestamp'; -- agent
-UPDATE associated_attrs SET general_info = NULL, agent_info = 'This is the Unix timestamp representing the date that this agent was deactivated in the MoxiWorks system. This will be returned null if the agent is still active.This is the Unix timestamp representing the date that this agent was deactivated in the MoxiWorks system. This will be returned null if the agent is still active.' where attr_title = 'deactivated_timestamp'; -- agent
+UPDATE associated_attrs SET general_info = NULL, agent_info = 'This is the Unix timestamp representing the date that this agent was created in the MoxiWorks system.', office_info = 'This is the Unix timestamp representing the date that this Office was created in the MoxiWorks system.' where attr_title = 'created_timestamp'; -- agent
+UPDATE associated_attrs SET general_info = NULL, agent_info = 'This is the Unix timestamp representing the date that this agent was deactivated in the MoxiWorks system. This will be returned null if the agent is still active.This is the Unix timestamp representing the date that this agent was deactivated in the MoxiWorks system. This will be returned null if the agent is still active.', office_info = 'This is the Unix timestamp representing the date that this Office was deactivated in the MoxiWorks system. This will be returned null if the office is still active.' where attr_title = 'deactivated_timestamp'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'Indicates the “Profile Visible Online” value for this agent within Roster. True corresponds to Yes (visible online); false corresponds to No (not visible online).' where attr_title = 'profile_visible_online'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'This relates to external agent reviews from platforms such as Zillow and Testimonial Tree. Existence of objects in the user_reviews data structure is dependent upon external sources, i.e. Zillow, Testimonial Tree. Documented entities in the `user_reviews` data structure may or may not be returned when `include_reviews=true` is passed. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned. Included in this - [source_name, agg_rating, reviews_count]' where attr_title = 'user_reviews'; -- agent
-UPDATE associated_attrs SET general_info = NULL, agent_info = 'Any agent objects updated after this Unix timestamp will be returned in the response. If no updated_since parameter is included in the request, by default only agent objects updated in the last seven days will be returned.', group_info = 'When a Unix timestamp is passed in this parameter, only Group objects that contain contacts that have been updated since this Unix timestamp will be returned. This update references contacts, not any changes with the group itself.' where attr_title = 'updated_since'; -- agent
+UPDATE associated_attrs SET general_info = NULL, agent_info = 'Any agent objects updated after this Unix timestamp will be returned in the response. If no updated_since parameter is included in the request, by default only agent objects updated in the last seven days will be returned.', group_info = 'When a Unix timestamp is passed in this parameter, only Group objects that contain contacts that have been updated since this Unix timestamp will be returned. This update references contacts, not any changes with the group itself.', listing_info = 'Paged responses of all Listing objects updated after this Unix timestamp will be returned in the response. If no updated_since parameter is included in the request, only Listing objects updated in the last seven days will be returned.' where attr_title = 'updated_since'; -- agent
 UPDATE associated_attrs SET general_info = 'For queries with multi-page responses, use the page_number parameter to return data for specific pages. Data for page 1 is returned if this parameter is not included. Use this parameter if total_pages indicates that there is more than one page of data available.' where attr_title = 'page_number';
-UPDATE associated_attrs SET general_info = NULL, agent_info = 'To find agent accounts deactivated within the specified timeframe, pass true for this boolean parameter.' where attr_title = 'deactivated'; -- agent
-UPDATE associated_attrs SET general_info = NULL, agent_info = 'Any agent objects deactivated after this Unix timestamp will be returned in the response. If no deactivated_since parameter is included in the request, only agent objects deactivated in the last seven days will be returned.' where attr_title = 'deactivated_since'; -- agent
+UPDATE associated_attrs SET general_info = NULL, agent_info = 'To find agent accounts deactivated within the specified timeframe, pass true for this boolean parameter.', office_info = 'To find offices deactivated within the specified timeframe, pass true for this boolean parameter.' where attr_title = 'deactivated'; -- agent
+UPDATE associated_attrs SET general_info = NULL, agent_info = 'Any agent objects deactivated after this Unix timestamp will be returned in the response. If no deactivated_since parameter is included in the request, only agent objects deactivated in the last seven days will be returned.', office_info = 'any Office objects deactivated after this Unix timestamp will be returned in the response. If no deactivated_since parameter is included in the request, only Office objects deactivated in the last seven days will be returned.' where attr_title = 'deactivated_since'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'To include company specific programs associated with the agent in the response, pass true.' where attr_title = 'include_company_programs'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'To include the base url (website_base_url) of the agent’s MoxiWorks website pass true.' where attr_title = 'include_website'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'To include only agent objects associated with company specific programs pass true.' where attr_title = 'has_company_programs'; -- agent
@@ -119,10 +119,10 @@ UPDATE associated_attrs SET general_info = NULL, brand_info = 'Within a Presenta
 UPDATE associated_attrs SET general_info = NULL, brand_info = 'Within a Presentation - specifically web view, this is the font color for related text.' where attr_title = 'pres_block_text_color';
 UPDATE associated_attrs SET general_info = NULL, buyertransaction_info = 'For Buyer Transactions, this will be the name or title of the transaction in question.' where attr_title = 'transaction_name';
 UPDATE associated_attrs SET general_info = NULL, buyertransaction_info = 'For Buyer Transactions, these will be the related notes.' where attr_title = 'notes';
-UPDATE associated_attrs SET general_info = NULL, buyertransaction_info = 'In relation to a Buyer Transaction, this is the street address of the property being purchased.' where attr_title = 'address';
-UPDATE associated_attrs SET general_info = NULL, buyertransaction_info = 'In relation to a Buyer Transaction, this will be the city or township of the property being purchased.' where attr_title = 'city';
-UPDATE associated_attrs SET general_info = NULL, buyertransaction_info = 'In relation to a Buyer Transaction, this will be the state or province of the property being purchased.' where attr_title = 'state';
-UPDATE associated_attrs SET general_info = NULL, buyertransaction_info = 'In relation to a Buyer Transaction, this will be the postal code of the property being purchased.' where attr_title = 'zip_code';
+UPDATE associated_attrs SET general_info = NULL, buyertransaction_info = 'In relation to a Buyer Transaction, this is the street address of the property being purchased.', office_info = 'The street address of the office.' where attr_title = 'address';
+UPDATE associated_attrs SET general_info = NULL, buyertransaction_info = 'In relation to a Buyer Transaction, this will be the city or township of the property being purchased.', office_info = 'The city the office is in.' where attr_title = 'city';
+UPDATE associated_attrs SET general_info = NULL, buyertransaction_info = 'In relation to a Buyer Transaction, this will be the state or province of the property being purchased.', office_info = 'The state or provice the office is in.' where attr_title = 'state';
+UPDATE associated_attrs SET general_info = NULL, buyertransaction_info = 'In relation to a Buyer Transaction, this will be the postal code of the property being purchased.', office_info = 'The postal code the office is in.' where attr_title = 'zip_code';
 UPDATE associated_attrs SET general_info = NULL, buyertransaction_info = 'In relation to a Buyer Transaction, the minimum desired living area for prospective properties.' where attr_title = 'min_sqft';
 UPDATE associated_attrs SET general_info = NULL, buyertransaction_info = 'In relation to a Buyer Transaction, the maximum desired living area for prospective properties.' where attr_title = 'max_sqft';
 UPDATE associated_attrs SET general_info = NULL, buyertransaction_info = 'In relation to a Buyer Transaction, the minimum number of bedrooms for prospective properties.' where attr_title = 'min_beds';
@@ -216,7 +216,7 @@ UPDATE associated_attrs SET general_info = NULL, contact_info = 'This is used to
 UPDATE associated_attrs SET general_info = NULL, contact_info = 'An email address associated with the Contact record.', emailcampaign_info = 'The email address for the EmailSubscription.' where attr_title = 'email_address';
 UPDATE associated_attrs SET general_info = NULL, contact_info = 'A phone number associated with the Contact record.' where attr_title = 'phone_number';
 UPDATE associated_attrs SET general_info = NULL, contact_info = 'Whether to only include Contact records for contacts that are neither considered personal contacts nor work collaborators in the payload response. By default all Contact records will be returned. Use the personal_contact and collaborator response attributes to determine the status of any given contact.' where attr_title = 'only_business_contacts';
-UPDATE associated_attrs SET general_info = NULL, contact_info = 'If there is more than one page of Contact objects to return, total_pages will denote how many pages of Contact objects there are to be returned fo the current query. Subsequent pages can be returned by including the page_number parameter in your API request.', group_info = 'The total number of pages in this response set.' where attr_title = 'total_pages';
+UPDATE associated_attrs SET general_info = NULL, contact_info = 'If there is more than one page of Contact objects to return, total_pages will denote how many pages of Contact objects there are to be returned fo the current query. Subsequent pages can be returned by including the page_number parameter in your API request.', group_info = 'The total number of pages in this response set.', office_info = 'The total number of pages in this response set.' where attr_title = 'total_pages';
 UPDATE associated_attrs SET general_info = NULL, contact_info = 'This array contains the payload from the request query. Any found Contact objects matching the query will be returned as Contact objects in the response. [see, documentation]', group_info = 'This is a comma separated list of parter_contact_ids. Only ids associated with the requesting partner AND the associated Agent will be added to the Group. Contacts found to already exist in the group will be ignored.' where attr_title = 'contacts';
 UPDATE associated_attrs SET general_info = NULL, contact_info = 'The resulting Contact object associated with this Delete request.' where attr_title = 'result';
 UPDATE associated_attrs SET general_info = NULL, emailcampaign_info = 'This is a unique, internally defined string per EmailSubscription type. Documentation of available subscription_type responses is outside the scope of this documentation. If you need help determining available types, please email partners@moxiworks.com.' where attr_title = 'subscription_type';
@@ -265,9 +265,9 @@ UPDATE associated_attrs SET general_info = NULL, event_info = 'This is the earli
 UPDATE associated_attrs SET general_info = NULL, event_info = 'This is the latest time that you are searching for an Event to be in. This data is required and must be a Unix timestamp before date_end.' where attr_title = 'date_end';
 UPDATE associated_attrs SET general_info = NULL, event_info = 'Any event Event whose duration spans or falls within this day will be included in the results for this day. This is a string representing a date in MM/DD/YYYY format.' where attr_title = 'date';
 UPDATE associated_attrs SET general_info = NULL, event_info = 'All events that fall on the selected date within the Engage calendar. This is the payload of Event objects that fall on this day. If no Event objects span this duration, then the events array will be emtpy.' where attr_title = 'events';
-UPDATE associated_attrs SET general_info = NULL, gallery_info = 'The MLS number for the listing.' where attr_title = 'ListingID';
-UPDATE associated_attrs SET general_info = NULL, gallery_info = 'The name of the MLS which this listing is listed with.' where attr_title = 'ListOfficeAOR';
-UPDATE associated_attrs SET general_info = NULL, gallery_info = 'Any images in the gallery. [see, documentation]' where attr_title = 'ListingImages';
+UPDATE associated_attrs SET general_info = NULL, gallery_info = 'The MLS number for the listing.', listing_info = 'The MLS number for the listing.' where attr_title = 'ListingID';
+UPDATE associated_attrs SET general_info = NULL, gallery_info = 'The name of the MLS which this listing is listed with.', listing_info = 'The name of the MLS which this listing is listed with.' where attr_title = 'ListOfficeAOR';
+UPDATE associated_attrs SET general_info = NULL, gallery_info = 'Any images in the gallery. [see, documentation]', listing_info = 'Any images of the property.' where attr_title = 'ListingImages';
 UPDATE associated_attrs SET general_info = NULL, group_info = 'This is the unique identifer you use in your system that will be associated with the Group that you are creating. This data is required and must be a unique ID for your Group Create request to be accepted.' where attr_title = 'partner_group_id';
 UPDATE associated_attrs SET general_info = NULL, group_info = 'This is a human readable string meaningful to the agent about what kind of Contact objects are in this Group.' where attr_title = 'moxi_works_group_name';
 UPDATE associated_attrs SET general_info = NULL, group_info = 'This is the unique identifier for this Group.' where attr_title = 'moxi_works_group_id';
@@ -276,141 +276,163 @@ UPDATE associated_attrs SET general_info = NULL, group_info = 'How to determine 
 UPDATE associated_attrs SET general_info = NULL, group_info = 'This is a list of contact id hashes representing Contact objects that were successfully added to the Group during creation. The contact hash will be composed of the partner_contact_id and moxi_works_contact_id associated with the contact.' where attr_title = 'updated_contacts';
 UPDATE associated_attrs SET general_info = NULL, leadsource_info = 'Is true if this LeadSource may be used as a lead source alias for the requesting partner.' where attr_title = 'is_partner_alias';
 UPDATE associated_attrs SET general_info = NULL, leadsource_info = 'Is true for the LeadSource entity used as a default for this partner. This should always be true for exactly one of each partner’s available lead sources in the Index Response Payload.' where attr_title = 'is_partner_default';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'This is the MoxiWorks Platform ID of the Listing which you are requesting to Update. This data is required and must reference a valid MoxiWorks Listing ID for your Update request to be accepted.' where attr_title = 'moxi_works_listing_id';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'When this attribute is passed as true, the json keys of the response will be underscored. The default json key format for listing responses is camel casing.' where attr_title = 'underscore_response';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'This is the property size of the listing land in acres.' where attr_title = 'LotSizeAcres';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'This is the number of full bathrooms in the property.' where attr_title = 'BathroomsFull';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'This is the number of half bathrooms in the property.' where attr_title = 'BathroomsHalf';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'This is the number of quarter-sized bathrooms in the property.' where attr_title = 'BathroomsOneQuarter';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'This is the number of partial bathrooms in the property.' where attr_title = 'BathroomsPartial';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'This is the number of three-quarter bathrooms in the property.' where attr_title = 'BathroomsThreeQuarter';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'This is the number of rooms that are bathrooms in the property. This is not a summary count of bathrooms by size.' where attr_title = 'BathroomsTotalInteger';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'This is the summary count of bathrooms in the property. This will be the number of quarter-bathrooms plus half-bathrooms plus three-quarter bathrooms plus full bathrooms.' where attr_title = 'BathroomsTotal';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'This is the number of bedrooms in the property.' where attr_title = 'BedroomsTotal';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The human-readable title for the listing generated by the property agent.' where attr_title = 'PublicTitle';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'These are human-readable notes about the property generated by the property agent.' where attr_title = 'PublicRemarks';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'This is a string representing a date on which the listing data was last updated in ISO 8601 format.' where attr_title = 'ModificationTimestamp';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Date the listing status changed to its current value.' where attr_title = 'StatusChangeDate';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'This denotes whether the property should be displayed on a public facing website.' where attr_title = 'InternetAddressDisplayYN';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The number of days the listing has been on market.' where attr_title = 'DaysOnMarket';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'This is a string representing a date on which the listing contract was initiated. The string format is MM/DD/YYYY.' where attr_title = 'ListingContractDate';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'This is a string representing a date on which the Listing object was created. The string format is MM/DD/YYYY.' where attr_title = 'CreatedDate';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The elementary school for the property.' where attr_title = 'ElementarySchool';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The number of garage spaces that are available at the property.' where attr_title = 'GarageSpaces';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Whether the property is waterfront.' where attr_title = 'WaterfrontYN';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The high school for the property.' where attr_title = 'HighSchool';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The home owner’s association fee for the property.' where attr_title = 'AssociationFee';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The name of the listing office.' where attr_title = 'ListOfficeName';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The listed price for the listing.' where attr_title = 'ListPrice';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The name of the listing agent.' where attr_title = 'ListAgentFullName';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'A unique identifier for the listing agent. This will correspond to the uuid field of an Agent.' where attr_title = 'ListAgentUUID';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'A unique identifier for the listing agent’s office. This will correspond to the office_id field of an Office.' where attr_title = 'ListAgentOfficeID';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'A unique identifier for the listing agent’s office. This will correspond to the moxi_works_office_id field of an Office.' where attr_title = 'ListAgentMoxiWorksOfficeID';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'If there is a second listing agent, the name of the second listing agent.' where attr_title = 'SecondaryListAgentFullName';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'If there is a second listing agent, the unique identifier for the second listing agent. This will correspond to the uuid field of an Agent.' where attr_title = 'SecondaryListAgentUUID';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The school district the listing property is in.' where attr_title = 'SchoolDistrict';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The street address of the property.' where attr_title = 'Address';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Additional street address information, for example, suite number.' where attr_title = 'Address2';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'City or township the property is located in.' where attr_title = 'City';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'County or Parish that the property is located in.' where attr_title = 'CountyOrParish';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The latitude of the property.' where attr_title = 'Latitude';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The longitude of the property.' where attr_title = 'Longitude';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'State or province the property is located in.' where attr_title = 'StateOrProvince';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The zip code or postal code the property is located in.' where attr_title = 'PostalCode';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The community the property is located in.' where attr_title = 'Community';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Total area of the lot.' where attr_title = 'LotSizeSquareFeet';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Whether to display information about this listing publicly. If this is false, then the information about this listing should not be visible to the Internet. ' where attr_title = 'InternetEntireListingDisplayYN';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The middle school for the property.' where attr_title = 'MiddleOrJuniorSchool';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The MLS Area which this listing is in.' where attr_title = 'ListOfficeAORArea';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Whether the property has a pool.' where attr_title = 'PoolYN';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The type of property being listed. This can be one of Residential, Condo-Coop, Townhouse, Land, Multifamily.' where attr_title = 'PropertyType';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The total annual property tax.' where attr_title = 'TaxAnnualAmount';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The tax year that the property tax in TaxAnnualAmount was assessed.' where attr_title = 'TaxYear';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Whether the building has one story or is multi-story.' where attr_title = 'SingleStory';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Total square footage of the building(s) on the property.' where attr_title = 'LivingArea';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Whether the property has a view.' where attr_title = 'ViewYN';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The year the living building(s) on the property were built.' where attr_title = 'YearBuilt';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Whether the listing is currently on-market.' where attr_title = 'OnMarket';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Detailed status of the listing; whether it’s sold | expired | sale | fail | temp off market | other | canceled | pending | contingent 
+ unknown | coming | soon' where attr_title = 'Status';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The unique Identifier for the listing in The MoxiWorks Platform.' where attr_title = 'MoxiWorksListingId';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Whether the agent created this listing.' where attr_title = 'AgentCreatedListing';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Virtual tour URL for this listing.' where attr_title = 'VirtualTourURL';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'A hash containing data shared between MoxiWorks affiliates.' where attr_title = 'SharedPartnerData';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The Tax ID / Parcel ID for the property. If no data is available for this attribute, it will be null.' where attr_title = 'TaxParcelId';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Details URL for this listing.' where attr_title = 'ListingURL';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Any defined features about the property.' where attr_title = 'PropertyFeatures';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Company specific attributes associated with the listing. These will be defined by the company & should not be expected to be uniform across companies.' where attr_title = 'CompanyListingAttributes';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Open house data.' where attr_title = 'OpenHouse';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The date when the images of the property were last modified, or null if the property has no images.' where attr_title = 'ImagesLastModified';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'The type of buyer broker compensation value set for the listing. The two types of broker compensation values are percent or flat_rate.' where attr_title = 'BuyerCommissionType';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Buyer broker compensation value for the listing.' where attr_title = 'BuyerCommissionValue';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'If fetching a multi-page response, this should be the MoxiWorksListingId found in the last Listing object of the previously fetched page.' where attr_title = 'last_moxi_works_listing_id';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Include additional listings using this unix timestamp representing the date since partner data has been updated. This attribute should be used in conjuncion with the updated_since attribute.' where attr_title = 'shared_partner_data_updated_since';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'When filtering by market_status use one of the following options: [on-market, off-market, all]' where attr_title = 'market_status';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'When filtering by property_types pass a comma separated string of integers associated with various property types. When property_types is not inlcuded, all property types will be included in the response. See documentation for legend.' where attr_title = 'property_types';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'When this filter parameter is passed as true, the response will be restricted to listings created by agents (non-mls listings).' where attr_title = 'only_agent_created';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'When this attribute is passed as true only listings with status “ComingSoon” will be returned.' where attr_title = 'coming_soon';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'If there is another page of Listing objects available, this will be false. If you are receiving the final page of Listing objects for the query, FinalPage will be true.' where attr_title = 'FinalPage';
+UPDATE associated_attrs SET general_info = NULL, listing_info = 'Each object in the Listings array will have the structure as defined in the documentation.' where attr_title = 'Listings';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'An alternate integer ID of the office. If you are integrating with MoxiWorks Authentication services, you should use this ID.' where attr_title = 'id';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The commonly known name of the office. This can be null if there is no data for this attribute.' where attr_title = 'common_name';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'URL to an image of the office.' where attr_title = 'image_url';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The suite or office number of the office.' where attr_title = 'address2';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The county the office is in. This can be null if there is no data for this attribute.' where attr_title = 'county';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'Alternate phone number for the office. This should be considered second in priority to phone_number.' where attr_title = 'alt_phone';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'This is the office’s main email address. This email address should be considered the email address the office would prefer to be contacted by.' where attr_title = 'email';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'This is the office’s main phone number. This number should be considered the number the office would prefer to be contacted by.' where attr_title = 'phone';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'Timezone the office is in.' where attr_title = 'timezone';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'Office’s website URL.' where attr_title = 'office_website';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The street address where the office accepts mail.' where attr_title = 'mailing_address';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The suite or office number of the office’s mailing address.' where attr_title = 'mailing_address2';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The city the office mailing address is in.' where attr_title = 'mailing_city';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The postal code the office mailing address is in.' where attr_title = 'mailing_zip';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The state or provice the office mailing address is in.' where attr_title = 'mailing_state';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'URL of the office logo image.' where attr_title = 'logo_url';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The offices array contains Dictionary objects representing Office entries. [see, documentation]' where attr_title = 'offices';
+
 
 END
 $$;
 
-UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'moxi_works_listing_id';
 
-UPDATE associated_attrs SET general_info = '' where attr_title = 'underscore_response';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'LotSizeAcres';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'BathroomsFull';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'BathroomsHalf';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'BathroomsOneQuarter';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'BathroomsPartial';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'BathroomsThreeQuarter';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'BathroomsTotalInteger';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'BathroomsTotal';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'BedroomsTotal';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'PublicTitle';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'PublicRemarks';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ModificationTimestamp';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'StatusChangeDate';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'InternetAddressDisplayYN';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'DaysOnMarket';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ListingContractDate';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'CreatedDate';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ElementarySchool';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'GarageSpaces';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'WaterfrontYN';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'HighSchool';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'AssociationFee';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ListOfficeName';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ListPrice';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ListAgentFullName';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ListAgentUUID';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ListAgentOfficeID';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ListAgentMoxiWorksOfficeID';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'SecondaryListAgentFullName';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'SecondaryListAgentUUID';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'SchoolDistrict';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'Address';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'Address2';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'City';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'CountyOrParish';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'Latitude';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'Longitude';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'StateOrProvince';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'PostalCode';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'Community';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'LotSizeSquareFeet';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'InternetEntireListingDisplayYN';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'MiddleOrJuniorSchool';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ListOfficeAORArea';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'PoolYN';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'PropertyType';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'PropertyType';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'TaxYear';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'SingleStory';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'LivingArea';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ViewYN';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'YearBuilt';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'OnMarket';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'Status';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'MoxiWorksListingId';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'AgentCreatedListing';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'VirtualTourURL';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'SharedPartnerData';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'TaxParcelId';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ListingURL';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'PropertyFeatures';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'CompanyListingAttributes';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'OpenHouse';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ImagesLastModified';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'BuyerCommissionType';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'BuyerCommissionValue';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'last_moxi_works_listing_id';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'shared_partner_data_updated_since';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'market_status';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'property_types';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'only_agent_created';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'coming_soon';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'FinalPage';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'Listings';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'id';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'common_name';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'image_url';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'address2';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'county';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'alt_phone';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'email';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'phone';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'timezone';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'office_website';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'mailing_address';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'mailing_address2';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'mailing_city';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'mailing_zip';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'mailing_state';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'logo_url';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'offices';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'created_after';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'created_before';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'updated_after';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'updated_before';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'include_times';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'type';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'presentations';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'SoldDate';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'SoldPrice';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'BuyerAgentFullName';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'BuyerAgentUUID';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'BuyerAgentOfficeName';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'BuyerAgentOfficeID';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'BuyerAgentMoxiWorksOfficeID';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'sold_since';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'sold_before';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'include_buyer_listings';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'partner_task_id';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'due_at';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'duration';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'description';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'completed_at';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'due_date_start';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'due_date_end';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'tasks';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'moxi_works_team_id';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'address1';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'fax';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'photo_url';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'alt_email';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'website_url';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'active';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'has_agent_association';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'has_web_data';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'has_favorites';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'has_searches';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'moxi_works_user_id';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'associated_agent_uuid';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'favorite_listing_ids';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'saved_searches';
+
+
+UPDATE associated_attrs SET general_info = NULL, office_info = 'An alternate integer ID of the office. If you are integrating with MoxiWorks Authentication services, you should use this ID.' where attr_title = 'id';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The commonly known name of the office. This can be null if there is no data for this attribute.' where attr_title = 'common_name';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'URL to an image of the office.' where attr_title = 'image_url';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The suite or office number of the office.' where attr_title = 'address2';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The county the office is in. This can be null if there is no data for this attribute.' where attr_title = 'county';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'Alternate phone number for the office. This should be considered second in priority to phone_number.' where attr_title = 'alt_phone';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'This is the office’s main email address. This email address should be considered the email address the office would prefer to be contacted by.' where attr_title = 'email';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'This is the office’s main phone number. This number should be considered the number the office would prefer to be contacted by.' where attr_title = 'phone';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'Timezone the office is in.' where attr_title = 'timezone';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'Office’s website URL.' where attr_title = 'office_website';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The street address where the office accepts mail.' where attr_title = 'mailing_address';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The suite or office number of the office’s mailing address.' where attr_title = 'mailing_address2';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The city the office mailing address is in.' where attr_title = 'mailing_city';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The postal code the office mailing address is in.' where attr_title = 'mailing_zip';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The state or provice the office mailing address is in.' where attr_title = 'mailing_state';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'URL of the office logo image.' where attr_title = 'logo_url';
+UPDATE associated_attrs SET general_info = NULL, office_info = 'The offices array contains Dictionary objects representing Office entries. [see, documentation]' where attr_title = 'offices';
+
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'created_after';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'created_before';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'updated_after';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'updated_before';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'include_times';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'type';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'presentations';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'SoldDate';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'SoldPrice';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'BuyerAgentFullName';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'BuyerAgentUUID';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'BuyerAgentOfficeName';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'BuyerAgentOfficeID';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'BuyerAgentMoxiWorksOfficeID';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'sold_since';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'sold_before';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'include_buyer_listings';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'partner_task_id';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'due_at';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'duration';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'description';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'completed_at';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'due_date_start';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'due_date_end';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'tasks';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'moxi_works_team_id';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'address1';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'fax';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'photo_url';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'alt_email';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'website_url';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'active';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'has_agent_association';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'has_web_data';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'has_favorites';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'has_searches';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'moxi_works_user_id';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'associated_agent_uuid';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'favorite_listing_ids';
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'saved_searches';

@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased] 2024/10/20
 ### Continuing process to add endpoint related information to DB
+#### Listing -> Office
+- {#endpoint}.html.erb
+    - Updates made as necessary...
+- associated_attr_info.sql
+    - Listing -> Office
+
+## [Unreleased] 2024/10/20
+### Continuing process to add endpoint related information to DB
 #### EmailCampaign -> LeadSource
 
 ### Changed
