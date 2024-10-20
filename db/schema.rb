@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_20_150443) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_20_183829) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_20_150443) do
     t.string "buyertransaction_info"
     t.string "company_info"
     t.string "contact_info"
-    t.string "email_info"
+    t.string "emailcampaign_info"
     t.string "event_info"
     t.string "gallery_info"
     t.string "group_info"

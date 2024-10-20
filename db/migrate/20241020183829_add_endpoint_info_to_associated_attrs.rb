@@ -6,7 +6,7 @@ class AddEndpointInfoToAssociatedAttrs < ActiveRecord::Migration[7.1]
     add_column :associated_attrs, :buyertransaction_info, :string
     add_column :associated_attrs, :company_info, :string
     add_column :associated_attrs, :contact_info, :string
-    add_column :associated_attrs, :email_info, :string
+    add_column :associated_attrs, :emailcampaign_info, :string
     add_column :associated_attrs, :event_info, :string
     add_column :associated_attrs, :gallery_info, :string
     add_column :associated_attrs, :group_info, :string

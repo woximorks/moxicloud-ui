@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] 2024/10/20
+### Continuing process from below update, found and sorted out a migration issue. Contact and EmailCampaign endpoint now have some basic info
+
+### Added
+- db/migrate/2024..._add_endpoint...
+    - This is a new one that features emailcampaign_info instead of email_info
+
+### Changed
+- README.md
+    - Added to documentation - initial setup, configuration info, etc
+- associated_attr_info.sql
+    - Contact base info added
+- app/views/{#endpoint}.html.erb
+    - Updated logic to display contents appropriately
+
+### Deleted
+- db/migrate/2024..._add_endpoint...
+    - This is the old one that features email_info :thumbsdown:
+
 ## [Unreleased] 2024/10/19
 ### Migration to add endpoint specific information to DB, SQL statements to feed DB
 #### ActionLog -> Company endpoints have some basic info

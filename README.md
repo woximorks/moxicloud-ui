@@ -11,9 +11,14 @@ Things you may want to cover:
     - pg_search
 
 * Configuration
-
+    - Rails Application
+    - PostgreSQL Database
+    - Hosts on Heroku as configured
 * Database creation
-
+    - Locally
+        - rails db:drop (only if necessary. Use with great care)
+        - db:create db:migrate db:seed
+        - run contents within associated_attr_info.sql
 * Database initialization
 
 * How to run the test suite

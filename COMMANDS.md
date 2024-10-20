@@ -21,3 +21,7 @@ rails g controller team index --skip-routes
 rails g controller webuser index --skip-routes
 
 rails g migration addEndpointInfoToAssociatedAttrs actionlog_info agent_info brand_info buyertransaction_info company_info contact_info email_info event_info gallery_info group_info leadsource_info listing_info office_info presentationlog_info sellertransaction_info soldlisting_info task_info team_info webuser_info
+
+rails db:rollback
+
+rails g migration addEndpointInfoToAssociatedAttrs actionlog_info agent_info brand_info buyertransaction_info company_info contact_info emailcampaign_info event_info gallery_info group_info leadsource_info listing_info office_info presentationlog_info sellertransaction_info soldlisting_info task_info team_info webuser_info
