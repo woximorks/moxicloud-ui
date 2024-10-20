@@ -1,4 +1,4 @@
-<div id="<%= dom_id associated_attr %>">
+<div>
   <p>
     <strong>Attr title:</strong>
     <%= associated_attr.attr_title %>
@@ -9,9 +9,147 @@
     <%= associated_attr.associated_endpoints %>
   </p>
 
-  <p>
-    <strong>General info:</strong>
-    <%= associated_attr.general_info %>
-  </p>
+  <% if @associated_attr.general_info.present? %>
+  <tr>
+    <th>General Info:</th>
+    <td><%= @associated_attr.general_info %></td>
+  </tr>
+<% end %>
+
+  <table>
+  <% if @associated_attr.actionlog_info.present? %>
+    <tr>
+      <th>Action Log Info:</th>
+      <td><%= @associated_attr.actionlog_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.agent_info.present? %>
+    <tr>
+      <th>Agent Info:</th>
+      <td><%= @associated_attr.agent_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.brand_info.present? %>
+    <tr>
+      <th>Brand Info:</th>
+      <td><%= @associated_attr.brand_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.buyertransaction_info.present? %>
+    <tr>
+      <th>Buyer Transaction Info:</th>
+      <td><%= @associated_attr.buyertransaction_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.company_info.present? %>
+    <tr>
+      <th>Company Info:</th>
+      <td><%= @associated_attr.company_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.contact_info.present? %>
+    <tr>
+      <th>Contact Info:</th>
+      <td><%= @associated_attr.contact_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.emailcampaign_info.present? %>
+    <tr>
+      <th>Email Campaign Info:</th>
+      <td><%= @associated_attr.emailcampaign_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.event_info.present? %>
+    <tr>
+      <th>Event Info:</th>
+      <td><%= @associated_attr.event_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.gallery_info.present? %>
+    <tr>
+      <th>Gallery Info:</th>
+      <td><%= @associated_attr.gallery_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.group_info.present? %>
+    <tr>
+      <th>Group Info:</th>
+      <td><%= @associated_attr.group_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.leadsource_info.present? %>
+    <tr>
+      <th>Lead Source Info:</th>
+      <td><%= @associated_attr.leadsource_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.listing_info.present? %>
+    <tr>
+      <th>Listing Info:</th>
+      <td><%= @associated_attr.listing_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.office_info.present? %>
+    <tr>
+      <th>Office Info:</th>
+      <td><%= @associated_attr.office_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.presentationlog_info.present? %>
+    <tr>
+      <th>Presentation Log Info:</th>
+      <td><%= @associated_attr.presentationlog_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.sellertransaction_info.present? %>
+    <tr>
+      <th>Seller Transaction Info:</th>
+      <td><%= @associated_attr.sellertransaction_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.soldlisting_info.present? %>
+    <tr>
+      <th>Sold Listing Info:</th>
+      <td><%= @associated_attr.soldlisting_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.task_info.present? %>
+    <tr>
+      <th>Task Info:</th>
+      <td><%= @associated_attr.task_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.team_info.present? %>
+    <tr>
+      <th>Team Info:</th>
+      <td><%= @associated_attr.team_info %></td>
+    </tr>
+  <% end %>
+
+  <% if @associated_attr.webuser_info.present? %>
+    <tr>
+      <th>Web User Info:</th>
+      <td><%= @associated_attr.webuser_info %></td>
+    </tr>
+  <% end %>
+</table>
+
 
 </div>
