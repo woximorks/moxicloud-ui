@@ -92,7 +92,7 @@ UPDATE associated_attrs SET general_info = NULL, agent_info = 'This is the Unix 
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'This is the Unix timestamp representing the date that this agent was deactivated in the MoxiWorks system. This will be returned null if the agent is still active.This is the Unix timestamp representing the date that this agent was deactivated in the MoxiWorks system. This will be returned null if the agent is still active.' where attr_title = 'deactivated_timestamp'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'Indicates the “Profile Visible Online” value for this agent within Roster. True corresponds to Yes (visible online); false corresponds to No (not visible online).' where attr_title = 'profile_visible_online'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'This relates to external agent reviews from platforms such as Zillow and Testimonial Tree. Existence of objects in the user_reviews data structure is dependent upon external sources, i.e. Zillow, Testimonial Tree. Documented entities in the `user_reviews` data structure may or may not be returned when `include_reviews=true` is passed. Your logic should be engineered to handle cases where the entity you are interested in is returned and where an empty data structure is returned. Included in this - [source_name, agg_rating, reviews_count]' where attr_title = 'user_reviews'; -- agent
-UPDATE associated_attrs SET general_info = NULL, agent_info = 'Any agent objects updated after this Unix timestamp will be returned in the response. If no updated_since parameter is included in the request, by default only agent objects updated in the last seven days will be returned.' where attr_title = 'updated_since'; -- agent
+UPDATE associated_attrs SET general_info = NULL, agent_info = 'Any agent objects updated after this Unix timestamp will be returned in the response. If no updated_since parameter is included in the request, by default only agent objects updated in the last seven days will be returned.', group_info = 'When a Unix timestamp is passed in this parameter, only Group objects that contain contacts that have been updated since this Unix timestamp will be returned. This update references contacts, not any changes with the group itself.' where attr_title = 'updated_since'; -- agent
 UPDATE associated_attrs SET general_info = 'For queries with multi-page responses, use the page_number parameter to return data for specific pages. Data for page 1 is returned if this parameter is not included. Use this parameter if total_pages indicates that there is more than one page of data available.' where attr_title = 'page_number';
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'To find agent accounts deactivated within the specified timeframe, pass true for this boolean parameter.' where attr_title = 'deactivated'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'Any agent objects deactivated after this Unix timestamp will be returned in the response. If no deactivated_since parameter is included in the request, only agent objects deactivated in the last seven days will be returned.' where attr_title = 'deactivated_since'; -- agent
@@ -158,7 +158,7 @@ UPDATE associated_attrs SET general_info = NULL, company_info = 'Page of compani
 UPDATE associated_attrs SET general_info = NULL, contact_info = 'This is the full name of the contact you are creating a Contact record for.This is the full name of the contact you are creating a Contact record for.' where attr_title = 'contact_name';
 UPDATE associated_attrs SET general_info = NULL, contact_info = 'This is the phone number that should be used first as a phone contact method, and displays as the primary phone number.' where attr_title = 'primary_phone_number';
 UPDATE associated_attrs SET general_info = NULL, contact_info = 'This is the phone number that should be used as an alternate phone contact method, and displays as the alternate phone number.' where attr_title = 'secondary_phone_number';
-UPDATE associated_attrs SET general_info = NULL, contact_info = 'This is used to keep track of the original lead source for this Contact record. This field will not be displayed in MoxiEngage, and is for the parter’s own tracking purposes. This key will be associated with valid moxi_works_lead_source_id. Send a LeadSource index request for a full list of applicable lead sources and their ids.' where attr_title = 'moxi_works_lead_source_id';
+UPDATE associated_attrs SET general_info = NULL, contact_info = 'This is used to keep track of the original lead source for this Contact record. This field will not be displayed in MoxiEngage, and is for the parter’s own tracking purposes. This key will be associated with valid moxi_works_lead_source_id. Send a LeadSource index request for a full list of applicable lead sources and their ids.', leadsource_info = 'This is the MoxiWorks Platform ID of the LeadSource. This will be an alphanumeric identification string which will be similar to the LeadSource name.' where attr_title = 'moxi_works_lead_source_id';
 UPDATE associated_attrs SET general_info = NULL, contact_info = 'This is used to keep track of the original lead source for this Contact record, if different than the lead source associated with the moxi_works_lead_source_id.' where attr_title = 'original_lead_source';
 UPDATE associated_attrs SET general_info = NULL, contact_info = 'The gender of the contact. This can be male, female, m or f. No matter what is provided in the request, the response payload will return m or f.' where attr_title = 'gender';
 UPDATE associated_attrs SET general_info = NULL, contact_info = 'This is the name used to address the contact when creating mailing labels for the contact associated with this Contact record.' where attr_title = 'label_name';
@@ -216,8 +216,8 @@ UPDATE associated_attrs SET general_info = NULL, contact_info = 'This is used to
 UPDATE associated_attrs SET general_info = NULL, contact_info = 'An email address associated with the Contact record.', emailcampaign_info = 'The email address for the EmailSubscription.' where attr_title = 'email_address';
 UPDATE associated_attrs SET general_info = NULL, contact_info = 'A phone number associated with the Contact record.' where attr_title = 'phone_number';
 UPDATE associated_attrs SET general_info = NULL, contact_info = 'Whether to only include Contact records for contacts that are neither considered personal contacts nor work collaborators in the payload response. By default all Contact records will be returned. Use the personal_contact and collaborator response attributes to determine the status of any given contact.' where attr_title = 'only_business_contacts';
-UPDATE associated_attrs SET general_info = NULL, contact_info = 'If there is more than one page of Contact objects to return, total_pages will denote how many pages of Contact objects there are to be returned fo the current query. Subsequent pages can be returned by including the page_number parameter in your API request.' where attr_title = 'total_pages';
-UPDATE associated_attrs SET general_info = NULL, contact_info = 'This array contains the payload from the request query. Any found Contact objects matching the query will be returned as Contact objects in the response. [see, documentation]' where attr_title = 'contacts';
+UPDATE associated_attrs SET general_info = NULL, contact_info = 'If there is more than one page of Contact objects to return, total_pages will denote how many pages of Contact objects there are to be returned fo the current query. Subsequent pages can be returned by including the page_number parameter in your API request.', group_info = 'The total number of pages in this response set.' where attr_title = 'total_pages';
+UPDATE associated_attrs SET general_info = NULL, contact_info = 'This array contains the payload from the request query. Any found Contact objects matching the query will be returned as Contact objects in the response. [see, documentation]', group_info = 'This is a comma separated list of parter_contact_ids. Only ids associated with the requesting partner AND the associated Agent will be added to the Group. Contacts found to already exist in the group will be ignored.' where attr_title = 'contacts';
 UPDATE associated_attrs SET general_info = NULL, contact_info = 'The resulting Contact object associated with this Delete request.' where attr_title = 'result';
 UPDATE associated_attrs SET general_info = NULL, emailcampaign_info = 'This is a unique, internally defined string per EmailSubscription type. Documentation of available subscription_type responses is outside the scope of this documentation. If you need help determining available types, please email partners@moxiworks.com.' where attr_title = 'subscription_type';
 UPDATE associated_attrs SET general_info = NULL, emailcampaign_info = 'Unix timestamp representing when the EmailSubscription that is associated with the Contact for the supplied partner_contact_id was initiated.' where attr_title = 'subscribed_at';
@@ -240,35 +240,48 @@ UPDATE associated_attrs SET general_info = NULL, emailcampaign_info = 'For “cu
 UPDATE associated_attrs SET general_info = NULL, emailcampaign_info = 'For “custom” neighborhood email subscription , search filter with min square feet' where attr_title = 'nn_min_sqft';
 UPDATE associated_attrs SET general_info = NULL, emailcampaign_info = 'For “custom” neighborhood email subscription , search filter with max square feet.' where attr_title = 'nn_max_sqft';
 UPDATE associated_attrs SET general_info = NULL, emailcampaign_info = 'For “custom” neighborhood email subscription, property_type is selected in the search filter. This value can be either Residential, Condominium, Manufactured Homes, Multi-family, or Townhouse.' where attr_title = 'nn_property_type';
-
-END
-$$;
-
 UPDATE associated_attrs SET general_info = NULL, event_info = 'This is the unique identifer you use in your system that has been associated with the Event that you are creating. This data is required and must be a unique key.' where attr_title = 'partner_event_id';
 UPDATE associated_attrs SET general_info = NULL, event_info = 'Event title, or other short description about this event.' where attr_title = 'event_subject';
 UPDATE associated_attrs SET general_info = NULL, event_info = 'Location information for the event, such as an address or building title.' where attr_title = 'event_location';
 UPDATE associated_attrs SET general_info = NULL, event_info = 'Whether to send a reminder about the event to attendees before the event starts.' where attr_title = 'send_reminder';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'remind_minutes_before';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'event_start';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'event_end';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'all_day';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'attendees';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'date_start';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'date_end';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'date';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'events';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ListingID';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ListOfficeAOR';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'ListingImages';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'partner_group_id';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'moxi_works_group_name';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'moxi_works_group_id';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'transient';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'is_contact_removal';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'updated_contacts';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'is_partner_alias';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'is_partner_default';
-UPDATE associated_attrs SET general_info = '' where attr_title = 'moxi_works_listing_id';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'If a reminder is being sent, this will allow the user control of when it sends.' where attr_title = 'remind_minutes_before';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'This is the Unix timestamp representing the start time of the Event that you are creating. This data is required and must be a valid Unix timestamp.' where attr_title = 'event_start';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'This is the Unix timestamp representing the end time of the Event that you are creating. This data is required and must be a valid Unix timestamp.' where attr_title = 'event_end';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'Calendar event associates as an all day event if true is passed.' where attr_title = 'all_day';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'Contacts that are in Engage and will attend the event. This is a comma separated list of contacts that have already been added through the MoxiWorks Platform API who will be present at the referenced event. (Use IDs from your system – i.e. partner_contact_id from Contact Create ).' where attr_title = 'attendees';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'This is the earliest time that you are searching for an Event to be in. This data is required and must be a Unix timestamp before date_end.' where attr_title = 'date_start';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'This is the latest time that you are searching for an Event to be in. This data is required and must be a Unix timestamp before date_end.' where attr_title = 'date_end';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'Any event Event whose duration spans or falls within this day will be included in the results for this day. This is a string representing a date in MM/DD/YYYY format.' where attr_title = 'date';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'All events that fall on the selected date within the Engage calendar. This is the payload of Event objects that fall on this day. If no Event objects span this duration, then the events array will be emtpy.' where attr_title = 'events';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'This is the unique identifer you use in your system that has been associated with the Event that you are creating. This data is required and must be a unique key.' where attr_title = 'partner_event_id';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'Event title, or other short description about this event.' where attr_title = 'event_subject';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'Location information for the event, such as an address or building title.' where attr_title = 'event_location';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'Whether to send a reminder about the event to attendees before the event starts.' where attr_title = 'send_reminder';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'If a reminder is being sent, this will allow the user control of when it sends.' where attr_title = 'remind_minutes_before';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'This is the Unix timestamp representing the start time of the Event that you are creating. This data is required and must be a valid Unix timestamp.' where attr_title = 'event_start';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'This is the Unix timestamp representing the end time of the Event that you are creating. This data is required and must be a valid Unix timestamp.' where attr_title = 'event_end';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'Calendar event associates as an all day event if true is passed.' where attr_title = 'all_day';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'This is the earliest time that you are searching for an Event to be in. This data is required and must be a Unix timestamp before date_end.' where attr_title = 'date_start';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'This is the latest time that you are searching for an Event to be in. This data is required and must be a Unix timestamp before date_end.' where attr_title = 'date_end';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'Any event Event whose duration spans or falls within this day will be included in the results for this day. This is a string representing a date in MM/DD/YYYY format.' where attr_title = 'date';
+UPDATE associated_attrs SET general_info = NULL, event_info = 'All events that fall on the selected date within the Engage calendar. This is the payload of Event objects that fall on this day. If no Event objects span this duration, then the events array will be emtpy.' where attr_title = 'events';
+UPDATE associated_attrs SET general_info = NULL, gallery_info = 'The MLS number for the listing.' where attr_title = 'ListingID';
+UPDATE associated_attrs SET general_info = NULL, gallery_info = 'The name of the MLS which this listing is listed with.' where attr_title = 'ListOfficeAOR';
+UPDATE associated_attrs SET general_info = NULL, gallery_info = 'Any images in the gallery. [see, documentation]' where attr_title = 'ListingImages';
+UPDATE associated_attrs SET general_info = NULL, group_info = 'This is the unique identifer you use in your system that will be associated with the Group that you are creating. This data is required and must be a unique ID for your Group Create request to be accepted.' where attr_title = 'partner_group_id';
+UPDATE associated_attrs SET general_info = NULL, group_info = 'This is a human readable string meaningful to the agent about what kind of Contact objects are in this Group.' where attr_title = 'moxi_works_group_name';
+UPDATE associated_attrs SET general_info = NULL, group_info = 'This is the unique identifier for this Group.' where attr_title = 'moxi_works_group_id';
+UPDATE associated_attrs SET general_info = NULL, group_info = 'Whether the group ID exists beyond name change.' where attr_title = 'transient';
+UPDATE associated_attrs SET general_info = NULL, group_info = 'How to determine if contacts were removed or added in this request (always false for create requests)' where attr_title = 'is_contact_removal';
+UPDATE associated_attrs SET general_info = NULL, group_info = 'This is a list of contact id hashes representing Contact objects that were successfully added to the Group during creation. The contact hash will be composed of the partner_contact_id and moxi_works_contact_id associated with the contact.' where attr_title = 'updated_contacts';
+UPDATE associated_attrs SET general_info = NULL, leadsource_info = 'Is true if this LeadSource may be used as a lead source alias for the requesting partner.' where attr_title = 'is_partner_alias';
+UPDATE associated_attrs SET general_info = NULL, leadsource_info = 'Is true for the LeadSource entity used as a default for this partner. This should always be true for exactly one of each partner’s available lead sources in the Index Response Payload.' where attr_title = 'is_partner_default';
+
+END
+$$;
+
+UPDATE associated_attrs SET general_info = NULL, listing_info = '' where attr_title = 'moxi_works_listing_id';
+
 UPDATE associated_attrs SET general_info = '' where attr_title = 'underscore_response';
 UPDATE associated_attrs SET general_info = '' where attr_title = 'LotSizeAcres';
 UPDATE associated_attrs SET general_info = '' where attr_title = 'BathroomsFull';

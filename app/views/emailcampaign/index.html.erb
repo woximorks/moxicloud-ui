@@ -10,7 +10,6 @@
   </thead>
   <tbody>
     <% @associated_attrs.each do |attr| %>
-      <!-- Check if the associated_endpoints field includes "ActionLog" -->
       <% if attr.associated_endpoints.include?("EmailCampaign") %>
         <tr>
           <td><%= attr.attr_title %></td>
