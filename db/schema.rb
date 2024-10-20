@@ -10,16 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_19_173940) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_20_150443) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "associated_attrs", force: :cascade do |t|
     t.string "attr_title"
     t.json "associated_endpoints"
-    t.json "general_info"
+    t.string "general_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "actionlog_info"
+    t.string "agent_info"
+    t.string "brand_info"
+    t.string "buyertransaction_info"
+    t.string "company_info"
+    t.string "contact_info"
+    t.string "email_info"
+    t.string "event_info"
+    t.string "gallery_info"
+    t.string "group_info"
+    t.string "leadsource_info"
+    t.string "listing_info"
+    t.string "office_info"
+    t.string "presentationlog_info"
+    t.string "sellertransaction_info"
+    t.string "soldlisting_info"
+    t.string "task_info"
+    t.string "team_info"
+    t.string "webuser_info"
   end
 
 end

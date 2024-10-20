@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased] 2024/10/19
+### Migration to add endpoint specific information to DB, SQL statements to feed DB
+#### ActionLog -> Company endpoints have some basic info
+
+### Added
+- associated_attr_info.sql
+- db/migrate/202...add_endpoint_to...
+    - updated DB to include any specific information for each endpoint that may not apply globally
+
+### Changed
+- associated_attr_info.sql
+    - Added update statements for general_info field for all associated_attrs
+    - Added endpoint specific statements for {#endpoint}_info on that file based on migration ran
+- db/schema.rb
+    - changed general_info to string
+- views/{#endpoint}/index.html.erb
+    - Updated to more appropriately reflect information displayed
+
+## [Unreleased] 2024/10/19
 ### Separating each endpoint, and displaying related attributes, SellerTransaction missing
 
 ### Added

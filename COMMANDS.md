@@ -3,7 +3,7 @@ rails g scaffold AssociatedAttr attr_title:string associated_endpoints:json gene
 rails g controller Actionlog index --skip-routes
 rails g controller Agent index --skip-routes
 rails g controller Brand index --skip-routes
-rails g controller Buyer index --skip-routes
+rails g controller Buyertransaction index --skip-routes
 rails g controller Company index --skip-routes
 rails g controller Contact index --skip-routes
 rails g controller Email index --skip-routes
@@ -19,3 +19,5 @@ rails g controller soldlisting index --skip-routes
 rails g controller task index --skip-routes
 rails g controller team index --skip-routes
 rails g controller webuser index --skip-routes
+
+rails g migration addEndpointInfoToAssociatedAttrs actionlog_info agent_info brand_info buyertransaction_info company_info contact_info email_info event_info gallery_info group_info leadsource_info listing_info office_info presentationlog_info sellertransaction_info soldlisting_info task_info team_info webuser_info
