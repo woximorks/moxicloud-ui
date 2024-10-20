@@ -1,14 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<h1>Associated Attributes</h1>
 
-<h1>Associated attrs</h1>
+<%= form_with url: search_associated_attrs_path, method: :get, local: true do |form| %>
+  <div class="form-group">
+    <%= form.label :query, "Search by Title" %>
+    <%= form.text_field :query, class: "form-control", placeholder: "Enter title" %>
+  </div>
+  <div class="form-group">
+    <%= form.submit "Search", class: "btn btn-primary" %>
+  </div>
+<% end %>
 
-<div id="associated_attrs">
-  <% @associated_attrs.each do |associated_attr| %>
-    <%= render associated_attr %>
-    <p>
-      <%= link_to "Show this associated attr", associated_attr %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New associated attr", new_associated_attr_path %>
+<% if @associated_attrs.present? %>
+  <h2>Search Results</h2>
+  <ul>
+    <% @associated_attrs.each do |attr| %>
+      <li><%= link_to attr.attr_title, associated_attr_path(attr) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No associated attributes found</p>
+<% end %>

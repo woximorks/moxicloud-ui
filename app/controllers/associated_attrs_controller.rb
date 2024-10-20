@@ -40,6 +40,15 @@ class AssociatedAttrsController < ApplicationController
     end
   end
 
+  def search
+    if params[:query].present?
+      @associated_attrs = AssociatedAttr.search_by_title(params[:query])
+    else
+      @associated_attrs = AssociatedAttr.all
+    end
+    render :index
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_associated_attr
