@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased] 2024/10/19
+### Separating each endpoint, and displaying related attributes, SellerTransaction missing
+
+### Added
+- views/{#endpoint}/index.html.erb
+- {#endpoint}_controller.rb
+- _nav.html.erb
+
+### Changed
+- views/{#endpoint}/index.html.erb
+    - displays the associated attributes for each {#endpoint}
+- routes.rb
+    - set the route that displays each page to endpoints/{#endpoint}
+- README.md
+    - found a rather large hole
+
+### Fixed
+- company.rb
+    - Was throwing stuff at ActionLog oopsies
+- soldlistings.rb
+    - That should be singular. All of that.
+
+## [Unreleased] 2024/10/19
 ### 
 
 ### Added

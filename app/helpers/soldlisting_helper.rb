@@ -1,0 +1,2 @@
+module SoldlistingHelper
+end

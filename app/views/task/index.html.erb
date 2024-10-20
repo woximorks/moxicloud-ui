@@ -1,0 +1,21 @@
+<h1>Associated Attributes - Task</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>General Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @associated_attrs.each do |attr| %>
+      <% if attr.associated_endpoints.include?("Task") %>
+        <tr>
+          <td><%= attr.attr_title %></td>
+          <td><%= attr.general_info %></td>
+         
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

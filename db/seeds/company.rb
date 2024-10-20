@@ -39,8 +39,8 @@ company_attrs.each do |attr_title|
     existing_endpoints = associated_attr.associated_endpoints || []
   
     # Only append 'ActionLog' if it's not already present
-    unless existing_endpoints.include?("ActionLog")
-      new_endpoints = existing_endpoints + ["ActionLog"] # Append only if it doesn't exist
+    unless existing_endpoints.include?("Company")
+      new_endpoints = existing_endpoints + ["Company"] # Append only if it doesn't exist
       associated_attr.update(associated_endpoints: new_endpoints)
     end
 end

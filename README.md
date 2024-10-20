@@ -23,3 +23,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+#### SellerTransaction is missing altogether as a seed file
+    - Great opportunity to audit the entire process to create documentation. Gonna leave it for now.
