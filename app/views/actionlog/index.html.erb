@@ -10,23 +10,27 @@
     </tr>
   </thead>
   <tbody>
-  <% @associated_attrs.each do |attr| %>
+    <% @associated_attrs.each do |attr| %>
     <% if attr.associated_endpoints.include?("ActionLog") %>
-      <tr>
-        <td><%= attr.attr_title %></td>
-        <td><%= attr.general_info %></td>
-        <td><%= attr.actionlog_info %></td>
-        <% if attr.product_info['ActionLog'].present? %>
-          <td>
-            <% attr.product_info['ActionLog'].each do |key, value| %>
-              <strong><%= key %>:</strong> <%= value.is_a?(Array) ? value.join("<br>").html_safe : value %><br><br>
-            <% end %>
-          </td>
+    <tr>
+      <td><%= attr.attr_title %></td>
+      <td><%= attr.general_info %></td>
+      <td><%= attr.actionlog_info %></td>
+      <% if attr.product_info['ActionLog'].present? %>
+      <td>
+      <% attr.product_info['ActionLog'].each do |key, value| %>
+        <strong><%= key %>:</strong> 
+        <% if value.is_a?(Array) %>
+        <%= value.join("<br>").html_safe %>
+        <% else %>
+        <%= value %>
         <% end %>
-      </tr>
+        <br><br>
+        <% end %>
+      </td>
+      <% end %>
+    </tr>
     <% end %>
     <% end %>
   </tbody>
-
-  
 </table>
