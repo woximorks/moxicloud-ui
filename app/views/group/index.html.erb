@@ -6,17 +6,23 @@
       <th>Title</th>
       <th>General Info</th>
       <th>Group Info</th>
+      <th>Product Info</th>
     </tr>
   </thead>
   <tbody>
-    <% @associated_attrs.each do |attr| %>
-      <% if attr.associated_endpoints.include?("Group") %>
-        <tr>
-          <td><%= attr.attr_title %></td>
-          <td><%= attr.general_info %></td>
-          <td><%= attr.group_info %></td>
-        </tr>
-      <% end %>
+  <% @associated_attrs.each do |attr| %>
+    <% if attr.associated_endpoints.include?("Group") %>
+      <tr>
+        <td><%= attr.attr_title %></td>
+        <td><%= attr.general_info %></td>
+        <td><%= attr.group_info %></td>
+        <% if attr.product_info['Group'].present? %>
+          <td><%= attr.product_info['Group'] %></td>
+        <% end %>
+      </tr>
+    <% end %>
     <% end %>
   </tbody>
+
+  
 </table>

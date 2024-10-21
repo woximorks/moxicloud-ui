@@ -6,17 +6,23 @@
       <th>Title</th>
       <th>General Info</th>
       <th>EmailCampaign Info</th>
+      <th>Product Info</th>
     </tr>
   </thead>
   <tbody>
-    <% @associated_attrs.each do |attr| %>
-      <% if attr.associated_endpoints.include?("EmailCampaign") %>
-        <tr>
-          <td><%= attr.attr_title %></td>
-          <td><%= attr.general_info %></td>
-          <td><%= attr.emailcampaign_info %></td>
-        </tr>
-      <% end %>
+  <% @associated_attrs.each do |attr| %>
+    <% if attr.associated_endpoints.include?("EmailCampaign") %>
+      <tr>
+        <td><%= attr.attr_title %></td>
+        <td><%= attr.general_info %></td>
+        <td><%= attr.emailcampaign_info %></td>
+        <% if attr.product_info['EmailCampaign'].present? %>
+          <td><%= attr.product_info['EmailCampaign'] %></td>
+        <% end %>
+      </tr>
+    <% end %>
     <% end %>
   </tbody>
+
+  
 </table>
