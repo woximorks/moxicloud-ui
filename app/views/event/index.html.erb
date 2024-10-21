@@ -11,26 +11,31 @@
   </thead>
   <tbody>
     <% @associated_attrs.each do |attr| %>
-    <% if attr.associated_endpoints.include?("Event") %>
-    <tr>
-      <td><%= attr.attr_title %></td>
-      <td><%= attr.general_info %></td>
-      <td><%= attr.event_info %></td>
-      <% if attr.product_info['Event'].present? %>
-      <td>
-      <% attr.product_info['Event'].each do |key, value| %>
-        <strong><%= key %>:</strong> 
-        <% if value.is_a?(Array) %>
-        <%= value.join("<br>").html_safe %>
-        <% else %>
-        <%= value %>
-        <% end %>
-        <br><br>
-        <% end %>
-      </td>
+      <% if attr.associated_endpoints.include?("Event") %>
+        <tr>
+          <td><%= attr.attr_title %></td>
+          <td><%= attr.general_info %></td>
+          <td><%= attr.event_info %></td>
+          <% if attr.product_info['Event'].present? %>
+            <td>
+              <% attr.product_info['Event'].each do |key, value| %>
+                <% if File.exist?(Rails.root.join('app/assets/images', "#{key}.png")) %>
+                  <%= image_tag "#{key}.png", alt: "#{key} Image" %>
+                <% end %>
+                <strong><%= key %><br></strong> 
+                <% if value.is_a?(Array) %>
+                  <%= value.join("<br>").html_safe %>
+                <% else %>
+                  <%= value %>
+                <% end %>
+
+                <br><br>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
       <% end %>
-    </tr>
-    <% end %>
     <% end %>
   </tbody>
+
 </table>
