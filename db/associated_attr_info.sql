@@ -53,6 +53,7 @@ UPDATE associated_attrs SET general_info = 'This name attribute is shared betwee
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'The first name of the agent.', contact_info = 'The first name of the contact.', webuser_info = 'The first name of the Web User.' where attr_title = 'first_name'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'The middle name of the agent.', contact_info = 'The middle name of the contact.' where attr_title = 'middle_name'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'The last name of the agent.', contact_info = 'The last name of the contact.', webuser_info = 'The last name of the Web User.' where attr_title = 'last_name'; -- agent
+UPDATE associated_attrs SET general_info = NULL, agent_info = 'The nickname of the agent.' where attr_title = 'nickname'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'This is the agent’s main phone number. This number should be considered the number the agent would like to be contacted by.' where attr_title = 'main_phone_number'; -- agent
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'Mobile phone number of the agent. main_phone_number should be considered higher priority, if not the same.' where attr_title = 'mobile_phone_number'; -- agent 
 UPDATE associated_attrs SET general_info = NULL, agent_info = 'Alternate phone number for the agent. This should be considered second in priority to main_phone_number.' where attr_title = 'alt_phone_number'; -- agent

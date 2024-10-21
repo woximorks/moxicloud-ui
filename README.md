@@ -1,33 +1,46 @@
-# README
+# MoxiCloud API Endpoints Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Initial Release
 
-Things you may want to cover:
+### Setup and Configuration
+- rails db:create db:migrate db:seed
+- Run command fortress in associated_attr_info.sql file within postgeSQL database
 
-* Ruby version
+### Features
 
-* System dependencies
-    - pg_search
+- Endpoint-specific views: Each endpoint has its own view to display associated attributes.
+- Search functionality: A search bar is implemented on the `associated_attrs` index page for looking up attributes by title.
 
-* Configuration
-    - Rails Application
-    - PostgreSQL Database
-    - Hosts on Heroku as configured
-* Database creation
-    - Locally
-        - rails db:drop (only if necessary. Use with great care)
-        - db:create db:migrate db:seed
-        - run contents within associated_attr_info.sql
-* Database initialization
+### Routes
 
-* How to run the test suite
+Each endpoint has its own page to display related attributes, accessible at:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+/endpoints/{#endpoint}
+```
 
-* Deployment instructions
+For example:
+```
+/endpoints/company
+/endpoints/emailcampaign
+```
 
-* ...
+### Associated Attributes
 
-#### SellerTransaction is missing altogether as a seed file
-    - Great opportunity to audit the entire process to create documentation. Gonna leave it for now.
+Attributes for each endpoint are displayed based on seeded data in the `associated_attrs` table, with filters applied to show relevant details.
+
+## Contributing
+
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature/YourFeature`.
+3. Commit changes: `git commit -m 'Add some feature'`.
+4. Push to the branch: `git push origin feature/YourFeature`.
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See `LICENSE` for more information.
+
+### Notes -
+
+#### SellerTransaction is missing altogether as a seed file. That page is intentionally blank.
