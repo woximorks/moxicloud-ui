@@ -28,6 +28,16 @@ For example:
 ### Associated Attributes
 
 Attributes for each endpoint are displayed based on seeded data in the `associated_attrs` table, with filters applied to show relevant details.
+- attr_title
+- associated_endpoints
+    - json objects
+    - each associated endpoint
+- general_info
+    - associated attribute info that could apply to any endpoint
+- {#endpoint}_info
+- product_info
+    - json objects
+    - Specific associated products, associated on a per endpoint basis.
 
 ## Contributing
 
