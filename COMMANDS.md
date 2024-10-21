@@ -25,3 +25,5 @@ rails g migration addEndpointInfoToAssociatedAttrs actionlog_info agent_info bra
 rails db:rollback
 
 rails g migration addEndpointInfoToAssociatedAttrs actionlog_info agent_info brand_info buyertransaction_info company_info contact_info emailcampaign_info event_info gallery_info group_info leadsource_info listing_info office_info presentationlog_info sellertransaction_info soldlisting_info task_info team_info webuser_info
+
+rails g migration AddProductInfoToAssociatedAttrs product_info:json
