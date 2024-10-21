@@ -5,7 +5,7 @@ namespace :associated_attrs do
   
       if record.associated_endpoints
         record.associated_endpoints.each do |endpoint|
-          updated_product_info[endpoint] = ["", "", ""]
+          updated_product_info[endpoint] = []
         end
   
         record.update(product_info: updated_product_info)

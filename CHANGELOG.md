@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.4] 2024/10/21
+### Drilling down associated information - ActionLog as a template
+
+## Changed
+- product_info.sql
+    - Overall structure established for product_info field
+    - Template provided to quickly update a field as necessary
+- update_product_info.rake
+    - Single paragraph for the moment
+- actionlog/index.html.erb
+    - Displaying any related info on a product level
+- README.md
+    - Some updates to documentation, nothing fancy
+
 ## [1.2.3] 2024/10/21
 ### Easy as 123
 

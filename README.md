@@ -38,6 +38,7 @@ Attributes for each endpoint are displayed based on seeded data in the `associat
 - product_info
     - json objects
     - Specific associated products, associated on a per endpoint basis.
+    - See product_info.sql file for specific update statement template
 
 ## Contributing
 
@@ -46,10 +47,6 @@ Attributes for each endpoint are displayed based on seeded data in the `associat
 3. Commit changes: `git commit -m 'Add some feature'`.
 4. Push to the branch: `git push origin feature/YourFeature`.
 5. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License. See `LICENSE` for more information.
 
 ### Notes -
 

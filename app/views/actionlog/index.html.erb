@@ -17,7 +17,11 @@
         <td><%= attr.general_info %></td>
         <td><%= attr.actionlog_info %></td>
         <% if attr.product_info['ActionLog'].present? %>
-          <td><%= attr.product_info['ActionLog'] %></td>
+          <td>
+            <% attr.product_info['ActionLog'].each do |key, value| %>
+              <strong><%= key %>:</strong> <%= value.is_a?(Array) ? value.join("<br>").html_safe : value %><br><br>
+            <% end %>
+          </td>
         <% end %>
       </tr>
     <% end %>
