@@ -41,4 +41,65 @@ body {
   #searchResults li a:hover {
     color: #2a6496; /* Darkens the link color on hover */
   }
+
+  .associated-attributes {
+    padding: 2em;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+  }
+  
+  .associated-attributes h1 {
+    color: #5392d7;
+    margin-bottom: 1.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+  }
+  
+  .attribute-item {
+    padding: 1.5em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+  }
+  
+  .attribute-info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .attribute-info div {
+    flex: 1 1 45%; /* Allow items to take up 45% of the width */
+  }
+  
+  .attribute-item strong {
+    color: #5392d7;
+  }
+  
+  .product-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  #productSection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em; /* This is where you apply the gap */
+    justify-content: center;
+  }
+  
+  #productSection .product-item {
+    flex-direction: column;
+
+  }
+  
+  #productSection img {
+    max-width: 100px;
+    height: auto;
+  }
   

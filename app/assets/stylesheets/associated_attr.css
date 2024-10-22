@@ -9,7 +9,7 @@
   
   /* Style for each title (like Attr Title, Associated Endpoints) */
   .associated-info-container strong {
-    color: #5392d7; /* Matches your existing color scheme */
+    color: #5392d7;/* Matches your existing color scheme */
     font-weight: 600;
     margin-right: 0.5em;
   }
@@ -25,7 +25,7 @@
   .associated-info-container th {
     text-align: left;
     padding: 0.5em;
-    background-color: #eaf4ff; /* Light background for table headers */
+    background-color: #f9f9f9;
     color: #5392d7;
     font-weight: 600;
   }
@@ -38,7 +38,7 @@
   }
 
   .associated-info-container h1 {
-    color: #51d8cf;
+    color: #5392d7;
     text-shadow: 1px 1px 2px rgba(78, 78, 78, 0.1); /* Subtle shadow for slight depth */
     letter-spacing: 0.5px; /* A little letter spacing for readability */
     font-weight: 600; /* Bold, but not too bold */
@@ -54,6 +54,6 @@
   
   /* Hover effect for better interactivity */
   .associated-info-container table tr:hover {
-    background-color: #f0f8ff; /* Subtle hover effect */
+    background-color: #51d8cf2b; /* Subtle hover effect */
   }
   
