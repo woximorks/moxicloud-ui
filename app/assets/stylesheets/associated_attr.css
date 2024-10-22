@@ -1,0 +1,59 @@
+/* Container to wrap the div */
+.associated-info-container {
+    background-color: #f9f9f9; /* Light background for readability */
+    padding: 1.5em;
+    border-radius: 8px;
+    margin-bottom: 1em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+  }
+  
+  /* Style for each title (like Attr Title, Associated Endpoints) */
+  .associated-info-container strong {
+    color: #5392d7; /* Matches your existing color scheme */
+    font-weight: 600;
+    margin-right: 0.5em;
+  }
+  
+  /* Style for the table inside the div */
+  .associated-info-container table {
+    width: 100%; /* Ensures the table spans the entire container */
+    border-collapse: collapse;
+    margin-top: 1em;
+  }
+  
+  /* Style for the table headers */
+  .associated-info-container th {
+    text-align: left;
+    padding: 0.5em;
+    background-color: #eaf4ff; /* Light background for table headers */
+    color: #5392d7;
+    font-weight: 600;
+  }
+  
+  /* Style for table cells */
+  .associated-info-container td {
+    padding: 0.5em;
+    border-bottom: 1px solid #ddd; /* Separating rows with a soft border */
+    color: #333;
+  }
+
+  .associated-info-container h1 {
+    color: #51d8cf;
+    text-shadow: 1px 1px 2px rgba(78, 78, 78, 0.1); /* Subtle shadow for slight depth */
+    letter-spacing: 0.5px; /* A little letter spacing for readability */
+    font-weight: 600; /* Bold, but not too bold */
+    text-transform: none; /* Keeps the original case */
+  }
+  
+  /* Additional padding for the paragraph elements */
+  .associated-info-container p {
+    margin-bottom: 1em;
+    font-size: 1em;
+    color: #333;
+  }
+  
+  /* Hover effect for better interactivity */
+  .associated-info-container table tr:hover {
+    background-color: #f0f8ff; /* Subtle hover effect */
+  }
+  

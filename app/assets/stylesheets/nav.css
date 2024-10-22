@@ -34,5 +34,25 @@
     padding: 1em;
     background-color: #5392d7;
     border-bottom: 5px solid #51d8cf;
+  }
 
+  #searchForm .button {
+    padding: 0.5em 1em;
+    margin-left: .5em;
+    background-color: #51d8cf;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #4178a9;
+    }
+  }
+
+  #searchForm .form-control {
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
   }

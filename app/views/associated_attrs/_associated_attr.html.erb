@@ -1,22 +1,21 @@
-<div>
-  <p>
+<section class="associated-info-container">
+  <h1>
     <strong>Attr title:</strong>
     <%= associated_attr.attr_title %>
-  </p>
-
-  <p>
-    <strong>Associated endpoints:</strong>
-    <%= associated_attr.associated_endpoints %>
-  </p>
+  </h1>
+  <table>
+  <tr>
+  <th>Associated endpoints:</th>
+  <td><%= associated_attr.associated_endpoints.join(', ') %></td>
+  </tr>
 
   <% if @associated_attr.general_info.present? %>
-  <tr>
-    <th>General Info:</th>
-    <td><%= @associated_attr.general_info %></td>
-  </tr>
-<% end %>
+    <tr>
+      <th>General Info:</th>
+      <td><%= @associated_attr.general_info %></td>
+    </tr>
+  <% end %>
 
-  <table>
   <% if @associated_attr.actionlog_info.present? %>
     <tr>
       <th>Action Log Info:</th>
@@ -152,4 +151,4 @@
 </table>
 
 
-</div>
+</section>

@@ -1,9 +1,44 @@
 @import url('nav.css');
+@import url('associated_attr.css');
 
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+  }
+  
+  #searchResults {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1em;
+  }
+  
+  #searchResults ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; /* Correct property for flexbox */
+    gap: 1em; /* Adds consistent spacing between list items */
+    padding: 0; /* Ensures no default padding */
+    margin: 0; /* Removes default margins */
+    list-style: none; /* Removes default bullets or numbers */
+  }
+  
+  #searchResults li {
+    padding: 0.5em; /* Keeps padding as you specified */
+    background-color: #f9f9f9; /* Light background for better contrast */
+    border-radius: 4px; /* Adds subtle rounding to the corners */
+  }
+  
+  #searchResults li a {
+    text-decoration: none;
+    color: #5392d7;
+    font-weight: 500; /* Adds a bit more weight for emphasis */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  #searchResults li a:hover {
+    color: #2a6496; /* Darkens the link color on hover */
   }
   
