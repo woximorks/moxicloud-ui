@@ -4,8 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] 2024/10/22
+### Ready to go
+
+### Changed
+- {#endpoint}.html.erb
+    - Applied changes from last commit
+- associated_attr_info.sql
+    - identified missing info related to updated_since on contact statement
+- README.md
+    - Supplemental documentation
+
 ## [1.3.9] 2024/10/22
-### associated_attr index, show views ready | Working through endpoint index
+### associated_attr index, show views ready
 
 ### Changed
 - associated_attr.css
@@ -14,7 +25,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
     - Style that will apply to all endpoint pages
 - actionlog/index.html.erb
     - Overall format applied
-
+    
 ## [1.3.8] 2024/10/22
 ### Front End Stylization for search page
 

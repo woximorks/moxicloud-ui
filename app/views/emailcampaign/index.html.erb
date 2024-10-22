@@ -1,41 +1,43 @@
-<h1>Associated Attributes - EmailCampaign</h1>
+<section class="associated-attributes">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>General Info</th>
-      <th>EmailCampaign Info</th>
-      <th>Product Info</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @associated_attrs.each do |attr| %>
-      <% if attr.associated_endpoints.include?("EmailCampaign") %>
-        <tr>
-          <td><%= attr.attr_title %></td>
-          <td><%= attr.general_info %></td>
-          <td><%= attr.emailcampaign_info %></td>
-          <% if attr.product_info['EmailCampaign'].present? %>
-            <td>
-              <% attr.product_info['EmailCampaign'].each do |key, value| %>
+  <h1>Associated Attributes - EmailCampaign</h1>
+
+  <% @associated_attrs.each do |attr| %>
+    <% if attr.associated_endpoints.include?("EmailCampaign") %>
+      <div class="attribute-item">
+        <div class="attribute-title">
+          <h1><%= attr.attr_title %></h1>
+        </div>
+        <% if attr.general_info.present? %>
+        <div class="attribute-info">
+          <p><strong>General Info:</strong> <%= attr.general_info %></p>
+        </div>
+        <% end %>
+        <% if attr.emailcampaign_info.present? %>
+        <div class="attribute-emailcampaign-info">
+          <strong>EmailCampaign Info:</strong> <%= attr.emailcampaign_info %>
+        </div>
+        <% end %>
+        <% if attr.product_info['EmailCampaign'].present? %>
+          <div class="attribute-product-info"  id="productSection">
+            <% attr.product_info['EmailCampaign'].each do |key, value| %>
+              <div class="product-item">
                 <% if File.exist?(Rails.root.join('app/assets/images', "#{key}.png")) %>
                   <%= image_tag "#{key}.png", alt: "#{key} Image" %>
                 <% end %>
-                <strong><%= key %><br></strong> 
-                <% if value.is_a?(Array) %>
-                  <%= value.join("<br>").html_safe %>
-                <% else %>
-                  <%= value %>
-                <% end %>
-
-                <br><br>
-              <% end %>
-            </td>
-          <% end %>
-        </tr>
-      <% end %>
+                <strong><%= key %></strong> 
+                <div class="product-value">
+                  <% if value.is_a?(Array) %>
+                    <%= value.join("<br>").html_safe %>
+                  <% else %>
+                    <%= value %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-  </tbody>
-
-</table>
+  <% end %>
+</section>

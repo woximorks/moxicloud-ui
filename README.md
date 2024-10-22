@@ -5,6 +5,7 @@
 ### Setup and Configuration
 - rails db:create db:migrate db:seed
 - Run command fortress in associated_attr_info.sql file within postgeSQL database
+- Run rake task associated_attrs:update_product_info
 
 ### Features
 
@@ -35,6 +36,7 @@ Attributes for each endpoint are displayed based on seeded data in the `associat
 - general_info
     - associated attribute info that could apply to any endpoint
 - {#endpoint}_info
+    - any information that is specific to a certain endpoint, that may not apply to others where the title is shared.
 - product_info
     - json objects
     - Specific associated products, associated on a per endpoint basis.
@@ -50,4 +52,4 @@ Attributes for each endpoint are displayed based on seeded data in the `associat
 
 ### Notes -
 
-#### SellerTransaction is missing altogether as a seed file. That page is intentionally blank.
+#### SellerTransaction is missing altogether as a seed file. That page is intentionally blank for now and appears under construction.

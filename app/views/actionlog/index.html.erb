@@ -1,6 +1,5 @@
 <section class="associated-attributes">
 
-
   <h1>Associated Attributes - ActionLog</h1>
 
   <% @associated_attrs.each do |attr| %>
@@ -9,9 +8,11 @@
         <div class="attribute-title">
           <h1><%= attr.attr_title %></h1>
         </div>
+        <% if attr.general_info.present? %>
         <div class="attribute-info">
           <p><strong>General Info:</strong> <%= attr.general_info %></p>
         </div>
+        <% end %>
         <% if attr.actionlog_info.present? %>
         <div class="attribute-actionlog-info">
           <strong>ActionLog Info:</strong> <%= attr.actionlog_info %>
