@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.4.1] 2024/10/22
+### Papa's first branch, Excel model to quickly create dataset
+
+### Created
+- update_product_info, product_info.json
+    - Rake task created to pull json data from data/product_info.json
+
+### Changed
+- product_info.json
+    - Dataset added
+
 ## [1.4.0] 2024/10/22
 ### Ready to go
 
@@ -108,6 +119,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
     - Updated documentation related to this recently added product_info field, and other database related documentation also provided for clarity as to what the user can expect from each table
 - product_info.sql
     - Correct update statement provided that can change the record as necessary
+- lib/data/product_info.json
+    - This file adds product level associations to every attribute
+- associated_attr_info.sql
+    - Small typos, missing space, etc
 
 ## [1.2.2] 2024/10/21
 ### Product Info displaying on front end for ActionLog
