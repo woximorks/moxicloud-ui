@@ -1,7 +1,7 @@
 UPDATE associated_attrs
 SET product_info = '{
     "ActionLog": {
-        "Roster": ["Some info"]
+        "Roster": ["Some info"],
         "Engage": ["Some info"],
         "API": ["Some other info"]
     },
@@ -63,4 +63,4 @@ SET product_info = '{
         "API": [""]
     }
 }'
-WHERE attr_title = 'test_attribute';
+WHERE attr_title = 'agent_uuid';
