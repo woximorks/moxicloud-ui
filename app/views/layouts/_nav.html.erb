@@ -1,26 +1,26 @@
 <section class="nav">
     <ul>
-        <li><%= link_to "Home", root_path %>
+        <li><%= link_to "Home", root_path, class: current_page?(root_path) ? "active" : "" %></li>
     </ul>
     <ul>
-        <li><%= link_to "ActionLog", actionlog_path %></li>
-        <li><%= link_to "Agent", agent_path %></li>
-        <li><%= link_to "Brand", brand_path %></li>
-        <li><%= link_to "BuyerTransaction", buyertransaction_path %></li>
-        <li><%= link_to "Company", company_path %></li>
-        <li><%= link_to "Contact", contact_path %></li>
-        <li><%= link_to "EmailCampaign", emailcampaign_path %></li>
-        <li><%= link_to "Event", event_path %></li>
-        <li><%= link_to "Gallery", gallery_path %></li>
-        <li><%= link_to "Group", group_path %></li>
-        <li><%= link_to "LeadSource", leadsource_path %></li>
-        <li><%= link_to "Listing", listing_path %></li>
-        <li><%= link_to "Office", office_path %></li>
-        <li><%= link_to "PresentationLog", presentationlog_path %></li>
-        <li><%= link_to "SellerTransaction", sellertransaction_path %></li>
-        <li><%= link_to "SoldListing", soldlisting_path %></li>
-        <li><%= link_to "Task", task_path %></li>
-        <li><%= link_to "Team", team_path %></li>
-        <li><%= link_to "WebUser", webuser_path %></li>
+        <li><%= link_to "ActionLog", actionlog_path, class: current_page?(actionlog_path) ? "active" : "" %></li>
+        <li><%= link_to "Agent", agent_path, class: current_page?(agent_path) ? "active" : "" %></li>
+        <li><%= link_to "Brand", brand_path, class: current_page?(brand_path) ? "active" : "" %></li>
+        <li><%= link_to "BuyerTransaction", buyertransaction_path, class: current_page?(buyertransaction_path) ? "active" : "" %></li>
+        <li><%= link_to "Company", company_path, class: current_page?(company_path) ? "active" : "" %></li>
+        <li><%= link_to "Contact", contact_path, class: current_page?(contact_path) ? "active" : "" %></li>
+        <li><%= link_to "EmailCampaign", emailcampaign_path, class: current_page?(emailcampaign_path) ? "active" : "" %></li>
+        <li><%= link_to "Event", event_path, class: current_page?(event_path) ? "active" : "" %></li>
+        <li><%= link_to "Gallery", gallery_path, class: current_page?(gallery_path) ? "active" : "" %></li>
+        <li><%= link_to "Group", group_path, class: current_page?(group_path) ? "active" : "" %></li>
+        <li><%= link_to "LeadSource", leadsource_path, class: current_page?(leadsource_path) ? "active" : "" %></li>
+        <li><%= link_to "Listing", listing_path, class: current_page?(listing_path) ? "active" : "" %></li>
+        <li><%= link_to "Office", office_path, class: current_page?(office_path) ? "active" : "" %></li>
+        <li><%= link_to "PresentationLog", presentationlog_path, class: current_page?(presentationlog_path) ? "active" : "" %></li>
+        <li><%= link_to "SellerTransaction", sellertransaction_path, class: current_page?(sellertransaction_path) ? "active" : "" %></li>
+        <li><%= link_to "SoldListing", soldlisting_path, class: current_page?(soldlisting_path) ? "active" : "" %></li>
+        <li><%= link_to "Task", task_path, class: current_page?(task_path) ? "active" : "" %></li>
+        <li><%= link_to "Team", team_path, class: current_page?(team_path) ? "active" : "" %></li>
+        <li><%= link_to "WebUser", webuser_path, class: current_page?(webuser_path) ? "active" : "" %></li>
     </ul>
 </section>

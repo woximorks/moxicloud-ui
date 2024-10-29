@@ -5,6 +5,11 @@ Rails.application.routes.draw do
       get :search
     end
   end
+
+  namespace :api do
+    get 'associated_attrs/:attr_title', to: 'associated_attrs#show_by_title'
+  end
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get '/endpoints/actionlog', to: 'actionlog#index', as: 'actionlog'
   get '/endpoints/agent', to: 'agent#index', as: 'agent'

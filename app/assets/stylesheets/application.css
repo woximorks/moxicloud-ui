@@ -7,39 +7,12 @@ body {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
   }
-  
-  #searchResults {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 1em;
-  }
-  
-  #searchResults ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly; /* Correct property for flexbox */
-    gap: 1em; /* Adds consistent spacing between list items */
-    padding: 0; /* Ensures no default padding */
-    margin: 0; /* Removes default margins */
-    list-style: none; /* Removes default bullets or numbers */
-  }
-  
-  #searchResults li {
-    padding: 0.5em; /* Keeps padding as you specified */
-    background-color: #f9f9f9; /* Light background for better contrast */
-    border-radius: 4px; /* Adds subtle rounding to the corners */
-  }
-  
-  #searchResults li a {
-    text-decoration: none;
+
+  h1 {
     color: #5392d7;
-    font-weight: 500; /* Adds a bit more weight for emphasis */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
-  }
-  
-  #searchResults li a:hover {
-    color: #2a6496; /* Darkens the link color on hover */
+    margin-bottom: 1.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
   }
 
   .associated-attributes {
@@ -47,14 +20,9 @@ body {
     background-color: #f9f9f9;
     border-radius: 8px;
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-  }
-  
-  .associated-attributes h1 {
-    color: #5392d7;
-    margin-bottom: 1.5em;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    font-weight: 600;
+    flex-direction: row; /* Stack items vertically */
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
   
   .attribute-item {
@@ -66,6 +34,13 @@ body {
     display: flex;
     flex-direction: column;
     margin-bottom: 1em;
+    width: 45%;
+  }
+  /* Adjust width for narrower screens */
+  @media (max-width: 1046px) {
+    .attribute-item {
+        width: 90%;
+    }
   }
   
   .attribute-info {
@@ -102,4 +77,38 @@ body {
     max-width: 100px;
     height: auto;
   }
+
   
+  #searchResults {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1em;
+  }
+  
+  #searchResults ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1em;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  #searchResults li {
+    padding: 0.5em;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  #searchResults li a {
+    text-decoration: none;
+    color: #5392d7;
+    font-weight: 500; /* Adds a bit more weight for emphasis */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  #searchResults li a:hover {
+    color: #2a6496; /* Darkens the link color on hover */
+  }

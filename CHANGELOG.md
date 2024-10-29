@@ -4,7 +4,38 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-# [1.4.1] 2024/10/22
+## [1.5.1] 2024/10/29
+### Filtering when product associations exist | API Support | SellerTransaction information added
+
+### Added
+- Api:associated_attrs_controller.rb
+- seeds/sellertransaction.rb
+
+### Changed
+- {#endpoint}_controller.rb
+    - Basically just checking and allowing ability to filter when products are present
+- {#endpoint}/index.html.erb
+    - form added with checkboxes to select products when present based on controller logic
+- routes.rb
+    - API support
+- api/associated_attrs_controller.rb
+    - Logic to pull all related info when title is provided
+- README.md
+    - API support docs
+- nav.css
+    - filter styling added
+    - Highlighting active page in the navbar
+- _nav.html.erb
+    - Class added related to showing which item is selected, corresponding to the view user is looking at
+- seeds/sellertransaction.rb
+    - Pulled data from documentation
+    - Converted to json and added to this file
+- product_info.json
+    - Adding new product level associations for 4 attributes
+    - Updating existing product level associations for the others
+        - This is easy because following the steps to seed the db in the README results in a front end view with all associated attributes, just need to fill in the related info.
+
+## [1.4.1] 2024/10/23
 ### Papa's first branch, Excel model to quickly create dataset
 
 ### Created
