@@ -1,61 +1,71 @@
 <section class="filter">
   <h3>Product Associations</h3>
   <%= form_with url: team_path, method: :get, local: true do %>
-  <div class="product-filter">
-    <% if @product_keys.any? %>
-      <% @product_keys.each do |product| %>
-        <label>
-          <%= check_box_tag 'products[]', product, params[:products]&.include?(product) %>
-          <%= product %>
-        </label>
+    <div class="product-filter">
+      <% if @product_keys.any? %>
+        <% @product_keys.each do |product| %>
+          <label>
+            <%= check_box_tag 'products[]', product, params[:products]&.include?(product) %>
+            <%= product %>
+          </label>
+        <% end %>
+      <% else %>
+        <p>No products available for Team.</p>
       <% end %>
-    <% else %>
-      <p>No products available for Team.</p>
-    <% end %>
-    <%= submit_tag "Filter" %>
-  </div>
-  <% end %>
 
+      <div class="search-bar">
+        <%= text_field_tag :search, params[:search], placeholder: "Search attributes..." %>
+      </div>
+
+      <%= submit_tag "Search / Filter" %>
+    </div>
+  <% end %>
 </section>
 
 <section class="associated-attributes">
-
-  <% @associated_attrs.each do |attr| %>
-    <% if attr.associated_endpoints.include?("Team") %>
-      <div class="attribute-item">
-        <div class="attribute-title">
-          <h1><%= attr.attr_title %></h1>
-        </div>
-        <% if attr.general_info.present? %>
-        <div class="attribute-info">
-          <p><strong>General Info:</strong> <%= attr.general_info %></p>
-        </div>
-        <% end %>
-        <% if attr.team_info.present? %>
-        <div class="attribute-team-info">
-          <strong>Team Info:</strong> <%= attr.team_info %>
-        </div>
-        <% end %>
-        <% if attr.product_info['Team'].present? %>
-          <div class="attribute-product-info"  id="productSection">
-            <% attr.product_info['Team'].each do |key, value| %>
-              <div class="product-item">
-                <% if File.exist?(Rails.root.join('app/assets/images', "#{key}.png")) %>
-                  <%= image_tag "#{key}.png", alt: "#{key} Image" %>
-                <% end %>
-                <strong><%= key %></strong> 
-                <div class="product-value">
-                  <% if value.is_a?(Array) %>
-                    <%= value.join("<br>").html_safe %>
-                  <% else %>
-                    <%= value %>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
+  <% if @associated_attrs.empty? %>
+    <p>No attributes available.</p>
+  <% else %>
+    <% @associated_attrs.each do |attr| %>
+      <% if attr.associated_endpoints.include?("Team") %>
+        <div class="attribute-item">
+          <div class="attribute-title">
+            <h1><%= attr.attr_title %></h1>
           </div>
-        <% end %>
-      </div>
+
+          <% if attr.general_info.present? %>
+            <div class="attribute-info">
+              <p><strong>General Info:</strong> <%= attr.general_info %></p>
+            </div>
+          <% end %>
+
+          <% if attr.team_info.present? %>
+            <div class="attribute-team-info">
+              <strong>Team Info:</strong> <%= attr.team_info %>
+            </div>
+          <% end %>
+
+          <% if attr.product_info['Team'].present? %>
+            <div class="attribute-product-info" id="productSection">
+              <% attr.product_info['Team'].each do |key, value| %>
+                <div class="product-item">
+                  <% if File.exist?(Rails.root.join('app/assets/images', "#{key}.png")) %>
+                    <%= image_tag "#{key}.png", alt: "#{key} Image" %>
+                  <% end %>
+                  <strong><%= key %></strong> 
+                  <div class="product-value">
+                    <% if value.is_a?(Array) %>
+                      <%= value.join("<br>").html_safe %>
+                    <% else %>
+                      <%= value %>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 </section>
