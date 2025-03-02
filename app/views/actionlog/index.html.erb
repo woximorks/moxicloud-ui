@@ -25,7 +25,7 @@
 <section class="associated-attributes">
 
   <% if @associated_attrs.empty? %>
-    <p>No data available for the selected products.</p>
+    <p>No products available for ActionLog.</p>
   <% else %>
     <% @associated_attrs.each do |attr| %>
       <% if attr.associated_endpoints.include?("ActionLog") %>

@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.3] 2025/03/01
+Search implemented on an individual endpoint index level for ActionLog-Company
+
+### Changed
+- actionlog-company.rb
+    - Scoped Search for Accuracy: Now searches only within attributes already associated with the selected endpoint (e.g., ActionLog), preventing irrelevant results.
+    - Better Filter Integration: Ensures search applies after product filtering, so valid attributes aren't mistakenly removed.
+    - Fixes Blank Screen Issue: Properly handles cases where no attributes match both the search and filters, ensuring the "No Attributes Available" message appears when needed.
+- actionlog-company/index.html.erb
+    - Cleaning these files up to match
+    - Implementing search bar
+
 ## [1.5.2] 2025/03/01
 Search implemented on an individual endpoint index level for ActionLog
 
