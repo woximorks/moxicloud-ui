@@ -116,7 +116,3 @@ GET /api/associated_attrs/:attr_title
 - Run command fortress in db/associated_attr_info.sql file
     - This can be done in your favorite PostgreSQL database manager like tableplus after connecting to the db
 - Run rake tasks associated_attrs:update_product_info, associated_attrs:add_product_level_association
-
-### Notes -
-
-#### SellerTransaction is missing altogether as a seed file. That page is intentionally blank for now and appears under construction.
