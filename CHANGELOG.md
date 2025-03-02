@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.2] 2025/03/01
+Search implemented on an individual endpoint index level for ActionLog
+
+### Changed
+- actionlog_controller.rb
+    - index action already filters @associated_attrs by selected products, extended this to also support searching by attr_title
+- nav.css
+    - Search bar style to match existing nav
+- actionlog/index.html.erb
+    - Adding the search bar
+
 ## [1.5.1] 2024/10/29
 ### Filtering when product associations exist | API Support | SellerTransaction information added
 
