@@ -13,8 +13,23 @@
         <p>No products available for PresentationLog.</p>
       <% end %>
 
+      <div class="filter-mode">
+        <label>
+          <%= radio_button_tag :filter_mode, 'or', params[:filter_mode] != 'and' %>
+          OR – Includes results that match any selected product.
+        </label>
+        <label>
+          <%= radio_button_tag :filter_mode, 'and', params[:filter_mode] == 'and' %>
+          AND – Includes results that match all selected products (can have extras).
+        </label>
+        <label>
+          <%= radio_button_tag :filter_mode, 'exact', params[:filter_mode] == 'exact' %>
+          EXACT – Includes results that match only the selected products (no more, no less).
+        </label>
+      </div>
+
       <div class="search-bar">
-        <%= text_field_tag :search, params[:search], placeholder: "Search attributes..." %>
+        <%= text_field_tag :search, params[:search], placeholder: "Enter attribute title" %>
       </div>
 
       <%= submit_tag "Search / Filter" %>
