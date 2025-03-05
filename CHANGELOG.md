@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.5] 2025/03/04
+Filtering update to include more options (ActionLog)
+
+### Changed
+- actionlog_controller.rb 
+    - OR – Includes results that match any selected product, AND – Includes results that match all selected products (can have extras), EXACT – Includes results that match only the selected products (no more, no less).
+- actionlog/index.html.erb
+    - radio buttons for selecting filter type
+
 ## [1.5.4] 2025/03/02
 Search implemented on an individual endpoint index level for all other attributes
 
